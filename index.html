@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>The Pillager Bay - The overworld's most resilient black marketplace</title>
+<meta name="description" content="Download Skin Packs, Worlds, Resource Packs, Mashup packs! The Pillager Bay - The overworld's most resilient black marketplace">
+<meta name="keywords" content="skins, skinpacks, worlds, mash-ups, mods, free, full, resource, pack, minecraft, pillager, black, market, bay, the, the pillager bay, ThePillagerBay ">
+<link href="static/normalize.css" rel="stylesheet" type="text/css">
+<link href="static/tpb.css" rel="stylesheet" type="text/css">
+<script src="static/main.js"></script>
+</head>
+<body class="align-center" id="home">
+<header>
+<nav>
+<section><img src="images/tpb.png" width="275" height="295"></section>
+<section>
+<strong>Search the Black Market</strong> |
+<a href="/browse.php" title="Browse the Black Market">Browse the Black Market</a> |
+<a href="/search.php?q=top100:recent" title="Recent Uploads">Recent&nbsp;Uploads</a>
+</section>
+</nav>
+</header>
+<main>
+<section>
+<form action="/search.php" name="q">
+<div>
+<input name="q" type="search" title="Pillager Search" placeholder="Pillager Search" autofocus required style="width: 20em; padding: 4px;">
+</div>
+<div>
+<span class="form-box"><label title="All" for="all" accesskey="a"><input name="all" id="all" type="checkbox" onclick="setAll();" checked>All</label></span>
+<span class="form-box"><label title="Skin Packs" for="skinpacks" accesskey="q"><input name="skinpacks" id="skinpacks" type="checkbox" onclick="rmAll();">Skin Packs</label></span>
+<span class="form-box"><label title="Worlds" for="worlds" accesskey="w"><input name="worlds" id="worlds" type="checkbox" onclick="rmAll();">Worlds</label></span>
+<span class="form-box"><label title="Resoure Packs" for="resourcepacks" accesskey="e"><input name="resourcepacks" id="resourcepacks" type="checkbox" onclick="rmAll();">Resource Packs</label></span>
+<span class="form-box"><label title="Mash-Ups" for="mixed" accesskey="r"><input name="mixed" id="mixed" type="checkbox" onclick="rmAll();">Mash-Ups</label></span>
+<span class="form-box"><label title="Personas" for="personas" accesskey="r"><input name="personas" id="personas" type="checkbox" onclick="rmAll();">Personas</label></span>
+</div>
+<div>
+<input type="submit" title="Pillager Search" name="search" value="Pillager Search" accesskey="s">
+<input type="submit" title="I'm Feeling Lucky" name="lucky" value="I'm Feeling Lucky">
+</div>
+<input type="hidden" name="page" value="0">
+<input type="hidden" name="orderby" value="">
+</form>
+</div>
+</section>
+</main>
+<footer>
+<nav>
+<div>
+</div>
+<div>
+<a href="https://git.cbps.xyz/ThePillagerBay/ThePillagerBay-Site" title="Source Code">Source Code</a> |
+<a href="https://www.minecraftforum.net/" title="discussion forum" target="_blank">Forum</a> |
+<a href="/contrib.php" title="upload stuff" target="_blank">Upload!</a> |
+<a href="/database_dl.php" title="download entire database" target="_blank">Give me all your data.</a> 
+</div>
+</nav>
+<p style="overflow-wrap: break-word;">
+<a href="https://minecraft.net" target="_NEW">MINECOINS</a>: <b><a href="https://www.bestbuy.com/site/minecoins-3500-coin-in-game-currency-card/6350837.p?skuId=6350837#&intl=nosplash">Best Buy</a></b>
+</p>
+
+<script>
+	// Fun idea i had,
+	// Store the entire keys/url list inside every users localstorage
+	// That should prevent it from being lost LOL
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "/DOWNLOAD_EVERYTHING.php?fmt=KDB")
+	xhr.onload = function() {
+		localStorage["keys"] = xhr.responseText;
+	}
+	xhr.send();
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "/DOWNLOAD_EVERYTHING.php?fmt=TXT")
+	xhr.onload = function() {
+		localStorage["urls"] = xhr.responseText;
+	}
+	xhr.send();
+</script>
+
+</footer>
+</body>
+</html>
